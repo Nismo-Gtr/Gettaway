@@ -1,1 +1,2 @@
-AIzaSyCwBYAaZOV6J4PXhuaCD-IZ6OMxEopoNLU
+Google Maps = AIzaSyCwBYAaZOV6J4PXhuaCD-IZ6OMxEopoNLU
+Amadeus = 0hamoe7nRz1jBXhJ5jxflqWWGGAc8YUH
