@@ -64,6 +64,7 @@ body {
     background-image: url("../images/plane-photo.jpeg");
 }
 .head-line {
+    font-family: Sans-serif;
     background-color: rgba(0,0,0,0.5);
     color: white;
     width: 60%;
