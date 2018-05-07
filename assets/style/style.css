@@ -8,6 +8,16 @@ body {
     padding: 0;
 }
 
+#map-canvas {
+    min-width: 200px;
+    width: 100%;
+    min-height: 200px;
+    height: 100%;
+    border: 1px solid blue;
+    height: 600px;
+    width: auto;
+  }
+
 body {
         /* The image used */
         background-image: url("../images/landing-image.jpg");
@@ -25,4 +35,12 @@ body {
 #map {
     height: 100%;
     display: none;
+    width: 50%;
+    
+}
+
+#searchCriteriaDiv {
+    background-color: rgba(144, 141, 136, 0.44);
+    height: 50%;
+    width: auto;
 }
