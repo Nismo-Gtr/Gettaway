@@ -1,2 +1,7 @@
 Google Maps = AIzaSyCwBYAaZOV6J4PXhuaCD-IZ6OMxEopoNLU
 Amadeus = 0hamoe7nRz1jBXhJ5jxflqWWGGAc8YUH
+
+HnOHTJeWwGAFw45CtIG5DumFlhpS3Sug
+amadeus api key
+N5vAaqwwqpf050XQ
+amadeus api secret
