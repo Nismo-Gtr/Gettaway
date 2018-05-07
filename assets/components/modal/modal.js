@@ -5,6 +5,9 @@ $(document).ready(function () {
     $('#myModal-1').on('shown.bs.modal', function () {
         $('#myInput').focus()
     })
+    $('#mySignIn').on('shown.bs.modal', function() {
+        $('#myInput').focus()
+    })
 
     // Initialize Firebase
     var config = {

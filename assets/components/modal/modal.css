@@ -1,3 +1,3 @@
-#create-profile:hover {
+#create-profile:hover, #signin-profile:hover {
     color: blue;
 }
