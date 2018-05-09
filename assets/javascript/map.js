@@ -78,12 +78,12 @@ $(document).ready(function () {
       storageBucket: "getaway-users.appspot.com",
       messagingSenderId: "987355554442"
     };
-    // firebase.initializeApp(config);
-
+    firebase.initializeApp(config);
+   
 
     var userData = firebase.database();
 
-    firebase.auth().onAuthStateChanged(function (unerName) {
+    firebase.auth().onAuthStateChanged(function (userName) {
         if (userName) {
             // User is signed in.
         } else {
