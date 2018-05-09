@@ -44,3 +44,11 @@ body {
     height: 50%;
     width: auto;
 }
+
+#create-profile:hover, #signin-profile:hover {
+    color: blue;
+}
+
+.modal-content {
+    width: 750px;
+}

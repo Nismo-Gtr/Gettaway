@@ -1,4 +1,3 @@
-x
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,11 +11,20 @@ x
 </head>
 
 <body>
-  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-1">
+    <label for="#one-way">One-Way</label>
+    <input type="radio" name="radio" id="one-way">
+    <label for="#round-trip">Round-Trip</label>
+    <input type="radio" name="radio" id="round-trip">
+    <label for="#max_price">Max Price(in USD)</label>
+    <input type="text" id="max_price">
+    <label for="#destination">Destination</label>
+    <input type="text" id="destination">
+    <button id="submit" data-toggle="modal" data-target="#myModal-1">Submit</button>
+  <!-- <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal-1">
     Launch Search!
-  </button>
+  </button> -->
   <!-- Modal -->
-  <div class="modal modal-lg" id="myModal-1" tabindex="-1" role="dialog">
+  <div class="modal" id="myModal-1" tabindex="-1" role="dialog">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -25,25 +33,25 @@ x
             <span aria-hidden="true">&times;</span>
           </button>
         </div>
-        <div class="modal-body">
-          <p>Modal body text goes here.</p>
+        <div class="modal-body"> 
           <table class="table table-hover">
             <thead>
               <tr>
-                <th scope="col">#</th>
                 <th scope="col">Airline</th>
-                <th scope="col">Flight Detail</th>
-                <th scope="col">Cost</th>
+                <th scope="col">Airport</th>
+                <th scope="col">Return Date</th>
+                <th scope="col">Price</th>
               </tr>
             </thead>
-            <tbody id="flights"></tbody>
+            <tbody id="flights">
+            </tbody>
           </table>
 
         </div>
 
         <!--Add Sign In link HERE-->
         <div class="modal-footer">
-            <a id="signin-profile" data-toggle="modal" data-dismiss="modal" data-target="#mySignIn">Sign In</a>
+          <a id="signin-profile" data-toggle="modal" data-dismiss="modal" data-target="#mySignIn">Sign In</a>
           <a id="create-profile" data-toggle="modal" data-dismiss="modal" data-target="#myModal">Create Profile</a>
           <button type="button" class="btn btn-secondary float-right" data-dismiss="modal">Cancel</button>
           <button type="button" class="btn btn-primary" data-toggle="modal" data-target="">
