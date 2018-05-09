@@ -22,32 +22,32 @@ $(document).ready(function () {
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
     var yyyy = today.getFullYear();
-
+    
     if (dd < 10) {
       dd = '0' + dd
     }
-
+    
     if (mm < 10) {
       mm = '0' + mm
     }
-
+    
     today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
-
+    
     var queryURL = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=ZTIOSLgexgAGIo05oZ3xhfPDfQIVNXwh&origin=CHI&departure_date=2018-05-09&one-way=" + oneWay + "&max_price=" + maxPrice;
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
       for (var i = 0; i < 21; i++) {
-
+        
         var tr = $("<tr>");
         var airline = $("<td>");
         var destination = $("<td>");
         var departureDate = $("<td>");
         var returnDate = $("<td>");
         var price = $("<td>");
-
+        
         airline.text(response.results[i].airline);
         destination.text(response.results[i].destination + " ");
         departureDate.text(response.results[i].departure_date + " ");
@@ -55,6 +55,7 @@ $(document).ready(function () {
         returnDate.text(returnDateData + " ");
         price.text(response.results[i].price);
         price.prepend("$");
+       
 
         $("#flights").append(tr);
         tr.append(airline);
