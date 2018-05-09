@@ -22,32 +22,32 @@ $(document).ready(function () {
     var dd = today.getDate();
     var mm = today.getMonth() + 1; //January is 0!
     var yyyy = today.getFullYear();
-    
+
     if (dd < 10) {
       dd = '0' + dd
     }
-    
+
     if (mm < 10) {
       mm = '0' + mm
     }
-    
+
     today = yyyy + '-' + mm + '-' + dd;
     console.log(today);
-    
+
     var queryURL = "https://api.sandbox.amadeus.com/v1.2/flights/inspiration-search?apikey=ZTIOSLgexgAGIo05oZ3xhfPDfQIVNXwh&origin=CHI&departure_date=2018-05-09&one-way=" + oneWay + "&max_price=" + maxPrice;
     $.ajax({
       url: queryURL,
       method: "GET"
     }).then(function (response) {
       for (var i = 0; i < 21; i++) {
-        
+
         var tr = $("<tr>");
         var airline = $("<td>");
         var destination = $("<td>");
         var departureDate = $("<td>");
         var returnDate = $("<td>");
         var price = $("<td>");
-        
+
         airline.text(response.results[i].airline);
         destination.text(response.results[i].destination + " ");
         departureDate.text(response.results[i].departure_date + " ");
@@ -55,13 +55,14 @@ $(document).ready(function () {
         returnDate.text(returnDateData + " ");
         price.text(response.results[i].price);
         price.prepend("$");
-       
+
 
         $("#flights").append(tr);
         tr.append(airline);
         tr.append(destination);
         tr.append(returnDate);
         tr.append(price);
+
         console.log(tr);
       }
     });
@@ -77,18 +78,18 @@ $(document).ready(function () {
       storageBucket: "getaway-users.appspot.com",
       messagingSenderId: "987355554442"
     };
-    firebase.initializeApp(config);
+    // firebase.initializeApp(config);
 
 
     var userData = firebase.database();
 
-    // firebase.auth().onAuthStateChanged(function (unerName) {
-    //     if (userName) {
-    //         // User is signed in.
-    //     } else {
-    //         // No user is signed in.
-    //     }
-    // });
+    firebase.auth().onAuthStateChanged(function (unerName) {
+        if (userName) {
+            // User is signed in.
+        } else {
+            // No user is signed in.
+        }
+    });
 
     $("#createUser").on("click", function () {
 
@@ -111,28 +112,40 @@ $(document).ready(function () {
         zipCode: userZipCode
       });
     });
-    event.preventDefault();
-
-    $('#map').show();
-    $(function () {
-      var mapOptions = {
-        zoom: 8,
-        center: new google.maps.LatLng(41.881832, -87.623177)
-      };
-      var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
-
-      // listen for the window resize event & trigger Google Maps to update too
-      $(window).resize(function () {
-        // (the 'map' here is the result of the created 'var map = ...' above)
-        google.maps.event.trigger(map, "resize");
-      });
-    });
   });
-  console.log("workin!");
 
+    $("button").on("click", function () {
+      event.preventDefault();
+      var userDestination = $("#searchInputForm").val().trim();
+      console.log(userDestination);
+
+      $('#map').show();
+      $(function () {
+        var mapOptions = {
+          zoom: 12,
+          // center: new google.maps.LatLng(41.881832, -87.623177)
+        };
+        var map = new google.maps.Map($("#map-canvas")[0], mapOptions);
+        geocoder.geocode({ 'address': userDestination }, function (results, status) {
+          if (status === 'OK') {
+            map.setCenter(results[0].geometry.location);
+          } else {
+            alert('Geocode was not successful for the following reason: ' + status);
+          }
+        });
+        // listen for the window resize event & trigger Google Maps to update too
+        $(window).resize(function () {
+          // (the 'map' here is the result of the created 'var map = ...' above)
+          google.maps.event.trigger(map, "resize");
+        });
+
+      });
+
+
+
+    })
 
 
 
 });
-
 
